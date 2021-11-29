@@ -1,0 +1,15 @@
+<div class="main">
+  <div class="container" >
+      <div>
+        <div class="img"><p>{{product.name}}</p></div>
+        <div class="info">
+          <p><b>Name:</b> {{product.name}}</p>
+          <p><b>Description:</b> {{product.description}}</p>
+          <p><b>Quantity:</b> {{product.count}}</p>
+          <form (ngSubmit)="onSubmit(product.id)">
+            <input class="borrow" type="submit" name="button" value="Add to Cart">
+          </form>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="main">
+  <div class="container" >
+    <div class="title">
+      <h2>Profile {{getUsername()}}</h2>
+    </div>
+
+    <form (ngSubmit)="onSubmit()">
+      <input class="log-out" type="submit" name="button" value="Log Out">
+    </form>
+    <app-user-products></app-user-products>
+  </div>
+</div>

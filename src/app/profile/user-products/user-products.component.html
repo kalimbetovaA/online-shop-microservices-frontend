@@ -1,0 +1,31 @@
+<form (ngSubmit)="onSubmit()">
+  <input class="borrow" type="submit" name="button" value="Cart">
+</form>
+<div *ngFor="let product of userProducts.cartItems!" class="book">
+  <div class="info">
+    <p><b>Product:</b> {{product.productId}}</p>
+    <p><b>Description:</b> {{product.description}}</p>
+    <p><b>Count:</b> {{product.count}}</p>
+  </div>
+</div>
+<form (ngSubmit)="order()" *ngIf="userProducts" >
+  <input class="more" type="submit" name="button" value="Order">
+</form>
+
+<form (ngSubmit)="onSubmitOrder()">
+  <input class="borrow" type="submit" name="button" value="Orders">
+</form>
+<div *ngFor="let order of orders!" class="book">
+  <div *ngFor="let product of order.orderItems!" class="book">
+    <div class="info">
+      <p><b>Product:</b> {{product.productId}}</p>
+      <p><b>Description:</b> {{product.description}}</p>
+      <p><b>Count:</b> {{product.quantity}}</p>
+      <p><b>Price:</b> {{product.price}}</p>
+    </div>
+  </div>
+</div>
+
+
+
+
