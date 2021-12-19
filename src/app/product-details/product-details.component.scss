@@ -22,6 +22,20 @@
   padding: 10px;
   border: 1px #f3de2c solid;
 }
+.container h3{
+  margin: 10px auto;
+  width: 85%;
+}
+
+.review-input{
+  padding: 10px;
+  width: 45%;
+  margin: auto;
+  margin-left: 80px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+}
+
 .container div{
   width: 100%;
 }
@@ -41,4 +55,32 @@
   cursor: pointer;
   margin-bottom: 20px;
   margin-top: 0;
+}
+
+.toFav{
+  display: block;
+  width: 120px;
+  outline: 0;
+  height: 35px;
+  border: none;
+  color: #fff;
+  background-color: #e5615d;
+  border-radius: 2px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.send{
+  height: 35px;
+  border: none;
+  color: #fff;
+  background-color: #f48403;
+  border-radius: 2px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 30px;
+  padding: 10px 20px;
+
 }

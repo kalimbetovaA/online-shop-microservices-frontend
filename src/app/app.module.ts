@@ -13,6 +13,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { ProfileComponent } from './profile/profile.component';
 import {AuthGuardService} from './guard/auth-guard.service';
 import {AuthService} from './services/auth.service';
+import {ReviewService} from './services/review.service.service';
 import {HTTP_INTERCEPTORS, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {BasicAuthInterceptorService} from './services/basic-auth-interceptor.service';
 import { UserProductsComponent } from './profile/user-products/user-products.component';
@@ -20,6 +21,8 @@ import { ProductsComponent } from './products/products.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ShopComponent } from './shop/shop.component';
 import { CategoryComponent } from './category/category.component';
+import { ReviewComponent } from './review/review.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ import { CategoryComponent } from './category/category.component';
     ProductDetailsComponent,
     ShopComponent,
     CategoryComponent,
+    ReviewComponent,
+    FavoritesComponent,
   ],
   imports: [
     BrowserModule,

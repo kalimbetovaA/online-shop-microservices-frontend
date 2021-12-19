@@ -26,7 +26,10 @@ export class UserProductsComponent implements OnInit {
       console.log(user.id+' test');
     });
     this.userService.getUserCart(this.user.id).subscribe(userProducts => {
-      this.userProducts = userProducts; });
+      this.userProducts = userProducts;
+      console.log(' test');
+      console.log(this.userProducts);
+    });
     console.log(this.userProducts+' test');
   }
 

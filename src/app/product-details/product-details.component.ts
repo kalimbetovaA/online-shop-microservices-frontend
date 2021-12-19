@@ -1,7 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { UserService } from '../services/user.service';
+import {ReviewService} from "../services/review.service.service";
+import {NgForm} from "@angular/forms";
+import {FavoritesService} from "../services/favorites.service.service";
 
 @Component({
   selector: 'app-product-details',
@@ -10,10 +13,16 @@ import { UserService } from '../services/user.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
+  @ViewChild('form') userForm!: NgForm;
   product: any;
   private user: any;
+  reviews: any;
+  customer: any;
+  message!: string;
 
-  constructor(private productService: ProductService, private userService: UserService, private activatedRouter: ActivatedRoute) { }
+  constructor(private productService: ProductService, private userService: UserService,
+              private reviewService: ReviewService, private activatedRouter: ActivatedRoute,
+              private favoritesService: FavoritesService) { }
 
   ngOnInit(): void {
 
@@ -21,7 +30,10 @@ export class ProductDetailsComponent implements OnInit {
       console.log('activatedRouter.params: ', params);
       this.productService.getProduct(params.get('id')).subscribe(product => {
         this.product = product; });
-    });
+      this.reviewService.getReview(params.get('id')).subscribe(review => {
+        this.reviews = review;
+      });});
+
   }
 
   onSubmit(id: string): void {
@@ -29,8 +41,31 @@ export class ProductDetailsComponent implements OnInit {
       this.user = user; });
     console.log(this.user.id+' test')
     this.productService.addProduct(id, this.user.id);
-    console.log(' test2')
+
   }
+
+  onFavSubmit(id: string): void {
+    this.userService.getUser(sessionStorage.getItem('username')).subscribe(user => {
+      this.user = user; });
+    console.log(this.user.id+' add to fav')
+    this.favoritesService.setFavorites(this.user.id, id);
+
+  }
+
+  onFormSubmit(){
+    this.userService.getUser(sessionStorage.getItem('username')).subscribe(user => {
+      this.user = user;
+      console.log(" test "+ this.user.id +  this.message);
+      this.reviewService.setReview(this.product.id, this.user.id, this.message)
+    });
+
+  }
+
+
+  getCustomer(id: string): string{
+
+    return 'anonymous';
+}
 
   
 

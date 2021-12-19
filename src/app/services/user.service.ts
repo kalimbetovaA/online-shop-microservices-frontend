@@ -15,6 +15,10 @@ export class UserService {
     return this.http.get<any>(this.baseURL + `/customers/username/${username}`);
   }
 
+  getUserById(id: string | null){
+    return this.http.get<any>(this.baseURL + `/customers/${id}`);
+  }
+
   getUserCart(id: string | null){
     return this.http.get<any>(this.baseURL + `/shopping-cart/customer/${id}/cart`);
   }

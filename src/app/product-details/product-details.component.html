@@ -9,7 +9,19 @@
           <form (ngSubmit)="onSubmit(product.id)">
             <input class="borrow" type="submit" name="button" value="Add to Cart">
           </form>
+          <form (ngSubmit)="onFavSubmit(product.id)">
+            <input class="toFav" type="submit" name="button" value="Add to Favorites">
+          </form>
         </div>
+        <h3>Product Reviews: </h3>
+        <div *ngFor="let review of reviews!" class="info">
+          <hr>
+          <p><b>Message:</b> {{review.message}}</p>
+        </div>
+        <form #form="ngForm" (ngSubmit)="onFormSubmit()">
+          <input class="review-input" type="text" name="message" [(ngModel)]="message">
+          <button class="send">Send</button>
+        </form>
       </div>
   </div>
 </div>

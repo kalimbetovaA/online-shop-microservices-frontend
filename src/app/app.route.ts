@@ -11,12 +11,14 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductsComponent } from './products/products.component';
 import {ShopComponent} from "./shop/shop.component";
 import { CategoryComponent } from './category/category.component';
+import {FavoritesComponent} from "./favorites/favorites.component";
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'sign-up', component: SignUpComponent},
   {path: 'sign-in', component: SignInComponent},
   {path: 'products', component: ProductsComponent},
+  {path: 'fav', component: FavoritesComponent},
   {path: 'shops', component: ShopComponent},
   {path: 'product-details/:id', component: ProductDetailsComponent},
   {path: 'category/:id', component: CategoryComponent},

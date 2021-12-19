@@ -3,9 +3,10 @@
 </form>
 <div *ngFor="let product of userProducts.cartItems!" class="book">
   <div class="info">
-    <p><b>Product:</b> {{product.productId}}</p>
+    <p><b>Product:</b> {{product.id}}</p>
     <p><b>Description:</b> {{product.description}}</p>
     <p><b>Count:</b> {{product.count}}</p>
+    <p><b>Price:</b> {{product.price}}</p>
   </div>
 </div>
 <form (ngSubmit)="order()" *ngIf="userProducts" >
